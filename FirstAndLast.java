@@ -38,7 +38,7 @@ public class FirstAndLast {
             int mid = left+(right-left)/2;
             if(num[mid] == target) {
                 start = mid;
-                right = mid - 1; //See if the are any more possibilities on the right hand side of arr.
+                right = mid - 1; //See if the are any more possibilities on the left hand side of arr.
             }
             else if (num[mid] > target) {
                 right = mid - 1;
@@ -59,7 +59,7 @@ public class FirstAndLast {
             int mid = left+(right-left)/2;
             if(num[mid] == target) {
                 end = mid;
-                left = mid + 1; //See if the are any more possibilities on the right hand side of arr.
+                left = mid + 1; //See if there are any more possibilities on the right hand side of arr.
             }
             else if (num[mid] > target) {
                 right = mid - 1;
@@ -82,3 +82,7 @@ public class FirstAndLast {
 //Second we find the end position of the answer by doing mid + 1
 //The reason we for the first we do mid -1 is because when we find the middle of the array it is  left + (right - left)
 //
+
+
+//TIME COMPLEXITY: O(logN) because there is a Binary search that is being implemented in order to find the starting and ending position of
+//a target value.

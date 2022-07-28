@@ -6,9 +6,10 @@ public class StringRecursion {
 
     public static void main(String[] args) {
         char[] s = {'m','o','t','h','e','r'};
-        reverseString(s);
+        iterativeSwap(s);
         String reverse = new String(s);
         System.out.println(reverse.toString());
+
     }
 
     public static void reverseString(char[] s) {
@@ -27,7 +28,19 @@ public class StringRecursion {
         s[j] = tmp;
     }
 
-    //when doing recursion there always must be a base case in order for the recursion to stop and not be an endless loop.
+    public static void iterativeSwap(char[] s) {
+        int i = 0;
+        int j = s.length-1;
+        while(i <= j) {
+            char temp = s[i];
+            s[i] = s[j];
+            s[j] = temp;
+            i++;
+            j--;
+        }
+    }
 }
 
-
+//when doing recursion there always must be a base case in order for the recursion to stop and not be an endless loop.
+//SOLUTION: For the recursive approach it is still O(n) time complexity.
+//SOLTUION: For iterative approach it is still O(n) time complexity
