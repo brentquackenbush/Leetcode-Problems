@@ -14,6 +14,8 @@ public class PivotIndex {
         int[] nums = {0,5,7,1,5,7};
         int ans = pivotIndex(nums);
         System.out.println(ans);
+        char[] s = {'s'};
+
     }
 
     public static int pivotIndex(int[] nums) {
