@@ -6,6 +6,8 @@
 //        Return the maximum area of an island in grid. If there is no island, return 0.
 //
 
+import jdk.jfr.DataAmount;
+
 //Iterative and RecursiveApproach
 public class MaxAreaOfIsland {
 
