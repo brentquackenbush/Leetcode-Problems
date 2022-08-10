@@ -15,6 +15,7 @@ public class Tree {
         root1.left.right = new TreeNode(2);
         root1.right.right = new TreeNode(9);
         System.out.println(isValidBST(root1));
+
     }
 
     public static boolean isValidBSTStack(TreeNode root) {
@@ -44,6 +45,12 @@ public class Tree {
             return false;
 
         return helper(root.left, min, root) && helper(root.right, root, max);
+    }
+
+    public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        while ((root.val - p.val) * (root.val - q.val) > 0)
+            root = p.val < root.val ? root.left : root.right;
+        return root;
     }
     public static class TreeNode {
         int val;
