@@ -17,40 +17,19 @@ public class NextRightPointers {
         Node node3 = new Node(3);
         Node node4 = new Node(4);
         Node node5 = new Node(5);
-        Node node6 = new Node(6);
+        //Node node6 = new Node(6);
         Node node7 = new Node(7);
         root.left = node2; root.right = node3;
         node2.left = node4; node2.right = node5;
-        node3.left = node6; node3.right = node7;
+        //node3.left = node6;
+        node3.right = node7;
 
-        root = connectBfstoDfs(root);
+        //root = connectbfs(root);
+        root = connect(root);
 
     }
 
-    public static Node connectdfs(Node root) { //dfs
-        if(root == null) return null;
-        Queue<Node> q = new LinkedList<>();
-        q.offer(root);
-
-        while(!q.isEmpty()) {
-            Node rightNode = null;
-
-            for(int i = q.size(); i > 0; i --) {
-                Node cur = q.poll();
-                cur.next = rightNode;
-                rightNode = cur;
-                if(cur.right!=null) {
-                    q.offer(cur.right);
-                    q.offer(cur.left);
-                }
-            }
-
-
-
-        }
-        return root;
-    }
-    public Node connectbfs(Node root) {
+    public static Node connectbfs(Node root) {
         if(root == null) return null;
         Queue<Node> q = new LinkedList<>();
         q.offer(root);
@@ -66,6 +45,29 @@ public class NextRightPointers {
                 }
             }
         }
+        return root;
+    }
+    public static Node connect(Node root) {
+        Node head = root;
+        if(root == null) return root;
+
+        while(head!=null) {
+            Node dummy = new Node();
+            Node temp = dummy;
+            while(head!=null) {
+                if(head.left!=null) {
+                    temp.next = head.left;
+                    temp = temp.next;
+                }
+                if(head.right!=null) {
+                    temp.next = head.right;
+                    temp = temp.next;
+                }
+                head = head.next;
+            }
+            head = dummy.next;
+        }
+
         return root;
     }
     public static Node connectBfstoDfs(Node root) {
