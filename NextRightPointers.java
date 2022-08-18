@@ -29,24 +29,6 @@ public class NextRightPointers {
 
     }
 
-    public static Node connectbfs(Node root) {
-        if(root == null) return null;
-        Queue<Node> q = new LinkedList<>();
-        q.offer(root);
-        while(!q.isEmpty()) {
-            Node rightNode = null;
-            for(int i = q.size(); i > 0; i--) {
-                Node cur = q.poll();
-                cur.next = rightNode;
-                rightNode = cur;
-                if(cur.right != null) {
-                    q.offer(cur.right);
-                    q.offer(cur.left);
-                }
-            }
-        }
-        return root;
-    }
     public static Node connect(Node root) {
         Node head = root;
         if(root == null) return root;
@@ -70,6 +52,26 @@ public class NextRightPointers {
 
         return root;
     }
+
+    public static Node connectbfs(Node root) {
+        if(root == null) return null;
+        Queue<Node> q = new LinkedList<>();
+        q.offer(root);
+        while(!q.isEmpty()) {
+            Node rightNode = null;
+            for(int i = q.size(); i > 0; i--) {
+                Node cur = q.poll();
+                cur.next = rightNode;
+                rightNode = cur;
+                if(cur.right != null) {
+                    q.offer(cur.right);
+                    q.offer(cur.left);
+                }
+            }
+        }
+        return root;
+    }
+//
     public static Node connectBfstoDfs(Node root) {
         Node head = root;
         for(; root != null; root = root.left)
@@ -103,3 +105,8 @@ public class NextRightPointers {
         }
     }
 }
+
+//Solution: So it is important to remember that in order to set the next pointer we must always have a reference
+//to the head.The first while loop traverses the entirety of the tree. Second while loop is to make sure all the leafs
+//on the current level has its next pointer set to the node on the right.
+
