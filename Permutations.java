@@ -21,7 +21,7 @@ class Permutations {
                     if (newPermutation.size() == nums.length)
                         result.add(newPermutation);
                     else
-                        permutations.add(newPermutation);
+                        permutations.offer(newPermutation);
                 }
             }
         }
