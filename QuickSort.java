@@ -33,3 +33,9 @@ public class QuickSort {
         arr[highIndex] = temp;
     }
 }
+
+//Quicksort takes a int low index and int high index and a pivot
+//does a while loop to make sure left < right at all times
+//increment left if left <= pivot && left < right
+//decrement right if right >= pivot && left < right
+//swap(
