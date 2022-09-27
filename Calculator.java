@@ -2,8 +2,9 @@ import java.util.Stack;
 
 public class Calculator {
     public static void main(String[] args) {
-        String s = "2+2*10-10";
-        System.out.println(calculate(s));
+        System.out.println(3 * (2/3));
+//        String s = "2-2*10-10";
+//        System.out.println(calculate(s));
     }
     public static int calculate(String s) {
         int sum = 0;
