@@ -1,38 +1,55 @@
 public class QuickSort {
     public static void main(String[] args) {
-        int[] quickSort = new int[]{120,2,4501,46,12,1000};
-        quicksort(quickSort,0,quickSort.length-1);
-        for(int num: quickSort) {
+        int[] arr = new int[]{6,4,1,2,3,10,9,8,7,5};
+        quicksort(arr);
+        for(int num: arr) {
             System.out.print(num + " ");
         }
     }
-
-    public static void quicksort(int[] arr, int lowIndex, int highIndex) {
-
+    public static void quicksort(int[] nums) {
+        quicksort(nums,0,nums.length-1);
+    }
+    public static void quicksort(int[] nums, int lowIndex, int highIndex) {
         if(lowIndex >= highIndex) return;
 
-        int pivot = arr[highIndex];
+        int pivot = nums[highIndex];
 
-        int left = lowIndex;
-        int right = highIndex;
-        while(left < right) {
-            while(arr[left] <= pivot && left < right) left++;
-            while(arr[right] >= pivot && left < right) right--;
+        int leftPointer = partition(nums,lowIndex,highIndex,pivot);
 
-            swap(arr,left,right);
-        }
-        swap(arr,left,highIndex);
-
-        quicksort(arr,lowIndex,left-1);
-        quicksort(arr,left + 1, highIndex);
+        quicksort(nums,lowIndex, leftPointer -1);
+        quicksort(nums,leftPointer+1,highIndex);
     }
 
-    private static void swap(int[] arr, int lowIndex, int highIndex) {
-        int temp = arr[lowIndex];
-        arr[lowIndex] = arr[highIndex];
-        arr[highIndex] = temp;
+    public static int partition(int[] nums, int lowIndex, int highIndex, int pivot) {
+
+        int leftPointer = lowIndex;
+        int rightPointer = highIndex;
+        while(leftPointer < rightPointer) {
+
+            while(nums[leftPointer] <= pivot && leftPointer < rightPointer) {
+                leftPointer++;
+            }
+            while(nums[rightPointer] >= pivot && leftPointer < rightPointer) {
+                rightPointer--;
+            }
+            swap(nums,leftPointer,rightPointer);
+        }
+        if(nums[leftPointer] > nums[highIndex]) {
+            swap(nums, leftPointer, highIndex);
+        }
+        else {
+            leftPointer = highIndex;
+        }
+        return leftPointer;
+    }
+
+    public static void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
     }
 }
+
 
 //Quicksort takes a int low index and int high index and a pivot
 //does a while loop to make sure left < right at all times
