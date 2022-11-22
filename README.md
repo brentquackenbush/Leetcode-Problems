@@ -16,6 +16,7 @@
 - Dynamic Programming (DP)
 - Toplogical Sort (Graphs)
 - Minimize the maximum/Maximize the minimum (Utilizes a binary search) 
+- Morris Traversal (O(1) space complexity binary tree traversal)
 
 ## Data Structures
 Known as auxillary data structure if used to solve an algorithm. 
