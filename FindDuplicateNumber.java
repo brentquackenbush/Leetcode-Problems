@@ -11,7 +11,7 @@ Can you solve the problem in linear runtime complexity?
  */
 public class FindDuplicateNumber {
     public static void main(String[] args) {
-        int[] nums = {3,1,3,4,2};
+        int[] nums = {1,2,3,4,2};
         System.out.println(findDuplicate(nums));
     }
     public static int findDuplicate(int[] nums) {

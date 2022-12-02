@@ -5,7 +5,6 @@ class BackspaceCompare {
         // use two pointer approach to compare the strings
         int index1 = str1.length() - 1, index2 = str2.length() - 1;
         while (index1 >= 0 || index2 >= 0) {
-
             int i1 = getNextValidCharIndex(str1, index1);
             int i2 = getNextValidCharIndex(str2, index2);
 
